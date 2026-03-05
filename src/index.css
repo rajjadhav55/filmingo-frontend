@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0f0f13;
+    --bg-secondary: #1a1a20;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --brand-red: #e11d48;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply bg-[#0f0f13] text-white antialiased;
+  }
+  
+  body {
+    @apply min-h-screen bg-[#0f0f13];
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}

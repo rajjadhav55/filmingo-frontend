@@ -1,0 +1,9 @@
+/* Global layout tweaks for Filmingo */
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+}
