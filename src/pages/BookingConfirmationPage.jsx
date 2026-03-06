@@ -64,7 +64,7 @@ const BookingConfirmationPage = () => {
             {/* Poster or Placeholder */}
             {posterUrl ? (
               <img 
-                src={posterUrl.startsWith('http') ? posterUrl : `http://localhost:8000${posterUrl}`} 
+                src={posterUrl.startsWith('http') ? posterUrl : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${posterUrl}`} 
                 alt="Movie Poster" 
                 className="w-24 h-32 object-cover rounded-lg border border-white/10 shadow-inner"
               />

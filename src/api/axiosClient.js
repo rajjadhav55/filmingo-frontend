@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-export const API_BASE = 'http://localhost:8000' // adjust if backend URL differs
+// Remove the || 'http://localhost:8000' fallback to force it to use the cloud URL
+export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://filmingo-backend.onrender.com';
 
 let accessToken = null
 let refreshToken = null
