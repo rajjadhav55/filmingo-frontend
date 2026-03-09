@@ -21,6 +21,8 @@ import PlaysPage from './pages/PlaysPage.jsx'
 import LoginModal from './components/LoginModal.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 
+import TicketPage from './pages/TicketPage.jsx'
+
 function App() {
   return (
     <>
@@ -44,6 +46,7 @@ function App() {
           <Route path="/sports/turf/:id/payment" element={<TurfPaymentPage />} />
           <Route path="/plays" element={<PlaysPage />} />
           <Route path="/plays/:matchId" element={<PlaysPage />} />
+          <Route path="/ticket" element={<TicketPage />} />
         </Route>
       </Routes>
     </>
