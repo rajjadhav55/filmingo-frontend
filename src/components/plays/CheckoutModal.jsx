@@ -30,7 +30,7 @@ const CheckoutModal = ({ isOpen, onClose, bookingData }) => {
 
     try {
         const seatIds = bookingData.selectedSeats ? bookingData.selectedSeats.map(s => s.seat_id) : [];
-        const response = await fetch('https://filmingo-backend-raj-baafa2e5289f.herokuapp.com/api/book-tickets/', {
+        const response = await fetch('https://filmingo-backend-raj-baafa2e5289f.herokuapp.com/book-tickets/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
