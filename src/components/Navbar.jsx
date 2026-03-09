@@ -71,16 +71,18 @@ const Navbar = () => {
           
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-            {['Movies', 'Events', 'Plays'].map((link) => (
-              <a 
-                key={link} 
-                href="#" 
-                className="transition-colors hover:text-white relative group"
-              >
-                {link}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e11d48] transition-all group-hover:w-full"></span>
-              </a>
-            ))}
+            <Link to="/" className="transition-colors hover:text-white relative group">
+              Movies
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e11d48] transition-all group-hover:w-full"></span>
+            </Link>
+            <a href="#" className="transition-colors hover:text-white relative group">
+              Events
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e11d48] transition-all group-hover:w-full"></span>
+            </a>
+            <Link to="/plays" className="transition-colors hover:text-white relative group">
+              Plays
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e11d48] transition-all group-hover:w-full"></span>
+            </Link>
             <Link to="/sports" className="transition-colors hover:text-white relative group">
               Sports
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#e11d48] transition-all group-hover:w-full"></span>
@@ -251,9 +253,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden border-t border-white/10 bg-[#1a1a20] px-6 py-4 space-y-4">
-             {['Movies', 'Events', 'Plays'].map((link) => (
-              <a key={link} href="#" className="block text-gray-400 hover:text-white">{link}</a>
-            ))}
+            <Link to="/" className="block text-gray-400 hover:text-white">Movies</Link>
+            <a href="#" className="block text-gray-400 hover:text-white">Events</a>
+            <Link to="/plays" className="block text-gray-400 hover:text-white">Plays</Link>
             <Link to="/sports" className="block text-gray-400 hover:text-white">Sports</Link>
             <Link to="/stream" className="block text-gray-400 hover:text-white">Stream</Link>
             {isAuthenticated && <Link to="/my-bookings" className="block text-gray-400 hover:text-white">My Bookings</Link>}

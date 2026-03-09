@@ -17,6 +17,7 @@ import SportsPage from './pages/SportsPage.jsx'
 import TurfDetailPage from './pages/TurfDetailPage.jsx'
 import TurfBookingPage from './pages/TurfBookingPage.jsx'
 import TurfPaymentPage from './pages/TurfPaymentPage.jsx'
+import PlaysPage from './pages/PlaysPage.jsx'
 import LoginModal from './components/LoginModal.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 
@@ -41,6 +42,8 @@ function App() {
           <Route path="/sports/turf/:id" element={<TurfDetailPage />} />
           <Route path="/sports/turf/:id/book" element={<TurfBookingPage />} />
           <Route path="/sports/turf/:id/payment" element={<TurfPaymentPage />} />
+          <Route path="/plays" element={<PlaysPage />} />
+          <Route path="/plays/:matchId" element={<PlaysPage />} />
         </Route>
       </Routes>
     </>
