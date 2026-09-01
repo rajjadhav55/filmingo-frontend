@@ -13,6 +13,9 @@ const SportsPage = () => {
 
   useEffect(() => {
     setLoading(true)
+    exploreAPI.getSportsEvents(locationStr)
+      .catch(err => console.error("Error fetching sports events:", err))
+
     exploreAPI.getTurfs(locationStr)
       .then(data => setTurfs(data))
       .catch(err => console.error("Error fetching turfs:", err))

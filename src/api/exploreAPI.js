@@ -113,6 +113,11 @@ export const exploreAPI = {
     return res.data.results || []
   },
 
+  async getSportsEvents(location = 'Mumbai') {
+    const res = await axiosClient.get(`/api/sports/?city=${encodeURIComponent(location)}`)
+    return res.data
+  },
+
   async getTurfs(location = 'Mumbai') {
     const locKey = location.toLowerCase().trim()
     if (turfCache[locKey]) {
