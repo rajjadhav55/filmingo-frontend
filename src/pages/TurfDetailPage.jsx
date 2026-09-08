@@ -8,8 +8,20 @@ const TurfDetailPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Basic info passed from the list page
-  const turf = location.state?.turf || null;
+  // Basic info passed from the list page or recovered from sessionStorage
+  const [turf] = useState(() => {
+    if (location.state?.turf) {
+      try {
+        sessionStorage.setItem(`turf_${id}`, JSON.stringify(location.state.turf));
+      } catch (e) {}
+      return location.state.turf;
+    }
+    try {
+      const saved = sessionStorage.getItem(`turf_${id}`);
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return null;
+  });
   
   // Hydration state
   const [details, setDetails] = useState(null);
@@ -30,8 +42,14 @@ const TurfDetailPage = () => {
 
   if (!turf) {
     return (
-      <div className="min-h-screen bg-[#0f0f13] pt-24 pb-20 text-white flex items-center justify-center">
-        <p>Turf not found. Please select a turf from the Sports page.</p>
+      <div className="min-h-screen bg-[#0f0f13] pt-24 pb-20 text-white flex flex-col items-center justify-center gap-4 px-4 text-center">
+        <p className="text-gray-400 text-lg">Turf details not found or expired.</p>
+        <button
+          onClick={() => navigate('/sports')}
+          className="bg-[#e11d48] hover:bg-rose-600 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-rose-900/30"
+        >
+          Back to Sports
+        </button>
       </div>
     );
   }

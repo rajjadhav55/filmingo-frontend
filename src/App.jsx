@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 
 import MainLayout from './layouts/MainLayout.jsx'
@@ -47,6 +47,7 @@ function App() {
           <Route path="/plays" element={<PlaysPage />} />
           <Route path="/plays/:matchId" element={<PlaysPage />} />
           <Route path="/ticket" element={<TicketPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </>
